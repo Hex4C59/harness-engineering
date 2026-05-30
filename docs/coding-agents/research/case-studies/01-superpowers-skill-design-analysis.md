@@ -457,27 +457,112 @@ Superpowers 明确规定用户指令优先级最高。如果用户的 `AGENTS.md
 
 这点很重要：workflow 是服务用户目标的，不是反过来。
 
-## 对本项目的启发
+## 对 playbooks 工具箱的启发
 
-本项目一直在讨论 harness engineering。Superpowers 可以作为一个非常好的案例：
+这篇文档现在最直接的落点不是整个仓库，而是 [`docs/coding-agents/agent/`](../../agent/README.md) 这套轻量 **Coding Agent Harness Toolkit**，尤其是其中的 [`playbooks/`](../../agent/playbooks/README.md) 和 [`skills/`](../../agent/skills/README.md)。
 
-- 它不是模型训练方法，而是模型外部的行为约束。
-- 它不是工具集合，而是流程集合。
-- 它不是让 agent 获得新知识，而是让 agent 按专业流程行动。
-- 它把软件工程方法论变成可以被 agent 加载和执行的结构化文本。
+Superpowers 是重型 skill suite：它希望 agent 在运行时自动或半自动选择 skills，并强制进入对应 workflow。当前 playbooks 更轻量：默认由人先选入口，再让 agent 按需读取 workflow、prompt、checklist 或 principle；只有边界清楚、复用价值高的流程才升级成 skill。
 
-如果我们要为自己的项目设计类似 harness，可以借鉴这些做法：
+这两者的关系不是“照搬 Superpowers”，而是：
 
-1. 把流程拆成阶段，而不是写一个巨大的全局提示。
-2. 每个阶段都有触发条件、禁止事项、检查清单和完成门槛。
-3. 对关键声明要求证据。
-4. 把设计、计划、验证、review 都变成显式 artifact。
-5. 对长任务使用隔离工作区和 subagent。
-6. 对简单任务保留轻量路径，避免流程成本超过任务价值。
+```text
+Superpowers 提供设计校准。
+Playbooks 提供更轻量、更可复制、更适合个人项目的落地形态。
+Skills 承接已经成熟、可触发、可复用的 gate。
+```
 
-## 一个可复用的简化版 Superpowers 流程
+## Superpowers 到 playbooks / skills 的映射
 
-如果不安装完整 Superpowers，也可以用一个轻量版：
+| Superpowers 设计 | 本工具箱对应位置 | 取舍 |
+|---|---|---|
+| `using-superpowers` 入口 skill | `playbooks/README.md` 的场景入口表 | Superpowers 让 agent 先选 skill；playbooks 先让人选 workflow，再让 agent 按需读 |
+| `brainstorming` | `prompts/solution-comparison.md`、`prompts/tech-stack-selection.md`、`principles/dependency-and-architecture-changes.md` | 不要求所有小任务都 brainstorming；只在需求、架构或方案不清时触发 |
+| `writing-plans` | `principles/task-document-layers.md`、`prompts/reviewable-slices.md`、`prompts/execute-plan-slice.md` | 保留 Spec / Plan / Status 分层，但按任务大小决定轻重 |
+| `test-driven-development` | `principles/tdd-and-verification.md`、`prompts/new-feature-tdd.md`、`checklists/daily-development.md` | 把 TDD 作为默认纪律，但允许文档、小配置、探索任务用替代验证 |
+| `systematic-debugging` | `workflows/bugfix.md`、`prompts/bugfix.md` | bugfix 必须先复现、找根因、写回归测试或说明不可自动化 |
+| `verification-before-completion` | `workflows/review-and-finish.md`、`checklists/review-and-finish.md` | 完成声明前必须有 fresh validation evidence |
+| `requesting-code-review` / `receiving-code-review` | `skills/review-gate/`、`prompts/review-gate.md`、`prompts/independent-review.md` | review gate 已升级成 skill；只读审查 correctness、验收、测试、兼容性、安全和越界问题 |
+| commit boundary discipline | `skills/commit-gate/` | commit gate 独立于 review gate：review gate 管质量，commit gate 管历史边界 |
+| `using-git-worktrees` | 未来可进入 `workflows/` 或 `principles/` | 当前 playbooks 还没有系统化 worktree 策略，这是可补强点 |
+| `subagent-driven-development` | `skills/review-gate/references/reviewer-agent.md` 已吸收 reviewer subagent 模式；完整实现编排暂不默认 | 当前先做只读 reviewer subagent，不默认多 agent 并行实现 |
+| `writing-skills` | `skills/` 和 `meta/extension-guide.md` | 成熟、重复、高价值流程再升级为 skill，不一开始就 skill 化 |
+
+## 对 playbooks / skills 的设计建议
+
+### 1. 不把所有流程都升级成 skill
+
+Superpowers 把流程做成 skills，这是它的强项。但当前工具箱更适合保留三层：
+
+```text
+先写成 prompt / workflow
+-> 用真实任务验证
+-> 重复、高价值、边界清楚后再升级为 skill
+```
+
+例如 [`commit-gate`](../../agent/skills/commit-gate/SKILL.md) 和 [`review-gate`](../../agent/skills/review-gate/SKILL.md) 适合 skill 化，因为它们有明确触发场景、输入、输出、禁止动作和判断标准。相比之下，`learning-first`、`dependency-and-architecture-changes` 更像原则和决策框架，暂时不必变成 skill。
+
+### 2. 把 gates 落到 checklists 和 skills，而不是只写在原则里
+
+Superpowers 最值得借鉴的是 gate 思维：
+
+```text
+没有设计，不进入实现。
+没有失败测试，不写生产代码。
+没有验证证据，不声明完成。
+没有 review，不继续扩大范围。
+```
+
+在本工具箱里，gate 分两层：
+
+- `checklists/`：日常任务中的阶段放行条件，例如 `daily-development.md`、`review-and-finish.md`、`maintainability-gate.md`。
+- `skills/`：高复用、可触发、需要稳定输出格式的 gate，例如 `review-gate` 和 `commit-gate`。
+
+原则文档解释为什么，checklist 决定能不能放行，skill 负责可复用执行。
+
+### 3. 保留轻量路径，避免流程压过任务价值
+
+Superpowers 的流程很强硬，对复杂任务很有价值，但对小修、文档修订、简单配置可能太重。
+
+playbooks 应该明确保留分层：
+
+| 任务类型 | 推荐路径 |
+|---|---|
+| 小修 / typo / 文档轻改 | 读相关文件 -> 最小修改 -> 局部验证 -> 完成前检查 |
+| bugfix | 复现 -> 根因 -> 回归测试或替代验证 -> 最小修复 -> 验证 |
+| 中等新功能 | 短 plan -> TDD -> reviewable slice -> check |
+| 架构 / 依赖 / 跨模块变化 | Spec / decision -> 用户确认 -> Execution Plan -> 分 slice 实现 |
+| 探索 / 陌生技术栈 | scout / learning-first，不直接落地大 diff |
+
+这比 Superpowers 更适合个人长期项目：既保留纪律，又不过度仪式化。
+
+### 4. 把“人选入口，agent 按需读”写成默认模式
+
+Superpowers 入口 skill 要求 agent 主动判断该用哪个 skill。playbooks 当前更稳的模式是：
+
+```text
+人先判断当前任务类型
+-> 选择 workflow
+-> workflow 链接 prompt / checklist / principle
+-> 必要时触发 skill
+-> agent 只读取当前任务需要的最小材料
+```
+
+这能避免 agent 一次性读完整工具箱，也符合 `playbooks/README.md` 里“谁来读”的分层。
+
+### 5. 下一步最值得补的是 worktree / parallel agent 边界
+
+Superpowers 在 worktree 和 subagent 编排上比当前 playbooks 更完整。本工具箱已经先吸收了 reviewer subagent 模式：`review-gate` 会优先派独立 reviewer agent，并把 reviewer 规则拆到 `references/reviewer-agent.md`。
+
+后续更值得补的是两个轻量边界文件：
+
+- `principles/worktree-and-branch-isolation.md`：什么时候需要 worktree、什么时候普通分支足够、什么时候不要并行。
+- `workflows/parallel-research-and-review.md`：research / POC / review 可以并行，核心实现默认不并行。
+
+不建议一开始复制 Superpowers 的完整 subagent-driven-development。先把边界写清楚，再用真实任务验证。
+
+## 一个适合 playbooks 的简化版 Superpowers 流程
+
+如果不安装完整 Superpowers，也可以把它吸收成 playbooks 默认循环：
 
 ```text
 1. Clarify
@@ -508,7 +593,7 @@ Superpowers 明确规定用户指令优先级最高。如果用户的 `AGENTS.md
    汇总 diff、验证结果、风险和下一步。
 ```
 
-这就是 Superpowers 的核心精神：把 agent 从“聪明的自动补全”变成“遵守工程纪律的协作者”。
+这就是 Superpowers 对 playbooks 的核心启发：把 agent 从“聪明的自动补全”变成“受 workflow、gate、验证和 review 约束的协作者”。
 
 ## 参考资料
 
