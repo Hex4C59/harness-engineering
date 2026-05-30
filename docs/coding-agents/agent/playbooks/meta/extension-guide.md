@@ -12,6 +12,7 @@
 | 一个初始化、review、完成或维护性检查清单 | `checklists/` |
 | 一个长期稳定的判断原则 | `principles/` |
 | 维护工具箱自身的规则、命名和扩展约定 | `meta/` |
+| 工具箱 workflow / prompt / skill 为什么演化 | `meta/harness-design-log.md` |
 | 还没验证、只是摘录或临时灵感 | 本仓库的 `drafts/`、`materials/` 或相关 research 文档 |
 
 ## 新增流程
@@ -39,6 +40,7 @@
 - 一个 template 文件可以收纳一组同类项目文件模板。
 - 原则文档要短，只保留判断框架，不写长篇调研。
 - meta 文档只维护这个工具箱本身，不承载具体工作流。
+- 新增或升级 gate 前，优先在 `meta/harness-design-log.md` 记录失败模式、触发条件和验证方式。
 
 ## 写作标准
 

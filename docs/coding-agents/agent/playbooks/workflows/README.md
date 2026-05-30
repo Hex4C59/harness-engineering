@@ -4,6 +4,7 @@
 
 | 场景 | Workflow |
 |---|---|
+| 不确定该走哪条流程 | [`orchestration-map.md`](orchestration-map.md) |
 | 从零开新项目 | [`new-project-bootstrap.md`](new-project-bootstrap.md) |
 | 既有项目接入 agent harness | [`existing-project-onboarding.md`](existing-project-onboarding.md) |
 | 日常做功能、修 bug、重构 | [`everyday-development.md`](everyday-development.md) |

@@ -13,6 +13,7 @@
 
 | 当前要做什么 | 入口 |
 |---|---|
+| 不确定该走哪条流程 | [`workflows/orchestration-map.md`](workflows/orchestration-map.md) |
 | 从零开一个新项目 | [`workflows/new-project-bootstrap.md`](workflows/new-project-bootstrap.md) |
 | 给既有项目接入 agent harness | [`workflows/existing-project-onboarding.md`](workflows/existing-project-onboarding.md) |
 | 日常做功能、修 bug、重构 | [`workflows/everyday-development.md`](workflows/everyday-development.md) |
