@@ -18,6 +18,7 @@
 | 恢复上下文 | [`context-recovery.md`](context-recovery.md) |
 | 完成前检查 | [`final-check.md`](final-check.md) |
 | 并行 research | [`parallel-research.md`](parallel-research.md) |
+| 概念知识调研 | [`concept-research.md`](concept-research.md) |
 
 ## 项目初始化和接入
 
