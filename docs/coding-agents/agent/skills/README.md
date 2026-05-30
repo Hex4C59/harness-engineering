@@ -1,6 +1,6 @@
 # Skills
 
-这里预留可复制到项目级或个人环境中的 coding agent skills。
+这里预留 **Coding Agent Harness Toolkit** 中可复制到项目级或个人环境的 coding agent skills。
 
 ## 定位
 

@@ -4,14 +4,14 @@
 
 这个目录下的文档按用途分成三类：
 
-## Agent Assets：写代码时直接用
+## Coding Agent Harness Toolkit：写代码时直接用
 
-这些文档更像可复制到项目里的 agent 协作资产，适合开新项目、写功能、修 bug、review diff 时直接复制提示词、流程或项目级工具配置。
+这些文档是可复制到项目里的 **Coding Agent Harness Toolkit**，适合开新项目、写功能、修 bug、review diff 时直接复制提示词、流程或项目级工具配置。
 
 正式入口统一放在 [`agent/`](agent/README.md)。其中 `playbooks/` 定义工作流和规则，`skills/` 预留可执行能力模板，`mcp/` 预留工具连接配置示例。旧的根级 playbook 文件不再作为入口；当前目录中也不恢复历史上的 `playbooks/01-agent-tdd-project-bootstrap-playbook.md` 和 `playbooks/02-coding-agent-cheatsheet.md`。
 
-1. [`agent/README.md`](agent/README.md)：可复制到新项目里的 agent 协作资产总入口。
-2. [`agent/playbooks/README.md`](agent/playbooks/README.md)：Coding Agent Playbook Toolbox 总入口。
+1. [`agent/README.md`](agent/README.md)：Coding Agent Harness Toolkit 总入口。
+2. [`agent/playbooks/README.md`](agent/playbooks/README.md)：Coding Agent Harness Toolkit 的 playbooks 入口。
 3. [`agent/playbooks/workflows/new-project-bootstrap.md`](agent/playbooks/workflows/new-project-bootstrap.md)：个人 Agent + TDD 新项目 bootstrap 流程。
 4. [`agent/playbooks/workflows/existing-project-onboarding.md`](agent/playbooks/workflows/existing-project-onboarding.md)：既有项目接入 agent harness 和 TDD 工作流的渐进式改造流程。
 5. [`agent/playbooks/workflows/everyday-development.md`](agent/playbooks/workflows/everyday-development.md)：日常开发、功能、bugfix、review 和上下文恢复入口。

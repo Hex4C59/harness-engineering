@@ -1,6 +1,8 @@
-# Coding Agent Assets
+# Coding Agent Harness Toolkit
 
-这里保存可以复制到具体项目里的 agent 协作资产。目标项目中推荐落位到 `docs/agent/`。
+这里保存可以复制到具体项目里的 **Coding Agent Harness Toolkit**。目标项目中推荐落位到 `docs/agent/`。
+
+它不是单纯的 prompt 集合，而是一套让 coding agent 在项目中按规则读取上下文、选择流程、执行验证、接受 review 和交接状态的 harness 资产。
 
 ## 目录
 

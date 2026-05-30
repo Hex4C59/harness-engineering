@@ -18,7 +18,7 @@
 
 ## 先回答：`docs/coding-agents/agent` 算 harness 还是提示词？
 
-你的 `docs/coding-agents/agent/` 更准确地说是 **agent harness assets**，不是单纯 prompt。
+你的 `docs/coding-agents/agent/` 更准确地说是 **Coding Agent Harness Toolkit**，不是单纯 prompt。
 
 它里面既有 prompt，也有更高层的 harness 组件：
 
@@ -35,7 +35,7 @@
 所以它的定位可以写成：
 
 ```text
-这不是“提示词合集”，而是一套轻量 agent harness 工具箱。
+这不是“提示词合集”，而是一套轻量 Coding Agent Harness Toolkit。
 Prompt 是其中一层；真正的目标是把上下文、流程、验证、权限和 review 组织起来。
 ```
 

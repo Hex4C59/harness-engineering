@@ -1,6 +1,6 @@
-# Coding Agent Playbook Toolbox
+# Coding Agent Harness Toolkit: Playbooks
 
-这个目录是一个可以复制到新项目里的 coding agent 工具箱。它不再按“长文章”组织，而是按使用场景、可复制 prompt、项目模板、检查清单和稳定原则组织。
+这个目录是 **Coding Agent Harness Toolkit** 的 playbooks 层，可以复制到新项目里使用。它不再按“长文章”组织，而是按使用场景、可复制 prompt、项目模板、检查清单和稳定原则组织。
 
 核心原则：
 
