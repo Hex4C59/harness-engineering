@@ -59,3 +59,5 @@ Skills 适合沉淀固定时刻、固定判断框架、跨项目重复使用的�
 | [`brainstorming`](brainstorming/SKILL.md) | 在计划或实现前澄清模糊需求，比较方案，并产出可确认的方向、验收标准和下一步 |
 | [`writing-plans`](writing-plans/SKILL.md) | 将已确认需求或 Spec 写成 `docs/plans/*.md` 执行计划，拆 reviewable slices、TDD 步骤、验证和回滚 |
 | [`commit-gate`](commit-gate/SKILL.md) | 判断当前 Git 工作区是否到达提交边界，并生成提交拆分和 commit message 建议 |
+| [`tdd-gate`](tdd-gate/SKILL.md) | 在实现功能、修 bug 或执行 plan slice 前强制 RED-GREEN-REFACTOR，并要求新鲜验证证据 |
+| [`review-gate`](review-gate/SKILL.md) | 在提交前只读审查当前 diff，判断是否存在正确性、验收、测试、兼容性、安全或越界问题 |
