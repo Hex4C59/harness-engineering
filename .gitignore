@@ -1,0 +1,36 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+id_rsa
+id_rsa.pub
+
+# Logs and temporary files
+*.log
+logs/
+tmp/
+temp/
+
+# Build and generated caches
+dist/
+build/
+coverage/
+.cache/
+.pytest_cache/
+node_modules/
+
+# Local research scratch space
+drafts/.local/
+materials/.local/
+references/.local/
