@@ -28,12 +28,13 @@
 15. 如果要理解 Agent Skills 如何把重复 prompt、组织知识、工作流和验证封装成可复用能力包，读 [`docs/coding-agents/research/runtime/04-agent-skills.md`](docs/coding-agents/research/runtime/04-agent-skills.md)。
 16. 如果要系统研究 Multi-Agent，读 [`docs/coding-agents/research/orchestration/02-multi-agent-research.md`](docs/coding-agents/research/orchestration/02-multi-agent-research.md)。
 17. 如果要理解 Vibe Coding 中非专家使用 AI 写陌生技术栈的 review 困境和学习债，读 [`docs/coding-agents/research/workflows/04-vibe-coding-review-and-learning-debt.md`](docs/coding-agents/research/workflows/04-vibe-coding-review-and-learning-debt.md)。
-18. 如果要把 Vibe Coding 的判断落实成可复制 prompt，读 [`docs/coding-agents/agent/playbooks/workflows/learning-first-vibe-coding.md`](docs/coding-agents/agent/playbooks/workflows/learning-first-vibe-coding.md)。
-19. 如果要用费曼学习法学习编程和这个仓库的资料，读 [`docs/coding-agents/agent/playbooks/workflows/feynman-learning-for-programming.md`](docs/coding-agents/agent/playbooks/workflows/feynman-learning-for-programming.md)。
-20. 如果要研究 Codex CLI 实验 Memories 功能，读 [`docs/coding-agents/codex/memory/01-codex-cli-experimental-memories.md`](docs/coding-agents/codex/memory/01-codex-cli-experimental-memories.md)。
-21. 如果要理解 LLM API 如何进入生产系统，读 [`docs/llm-api/research/01-llm-api-research.md`](docs/llm-api/research/01-llm-api-research.md)。
-22. 如果要理解 reasoning、模型能力和 benchmark，再读 [`docs/ai-models/README.md`](docs/ai-models/README.md) 下的文档。
-23. 如果要理解长上下文、prompt caching 和 agent runtime 成本，再读 [`docs/ai-models/infrastructure/01-kv-cache-research.md`](docs/ai-models/infrastructure/01-kv-cache-research.md)。
+18. 如果要理解 Anthropic / Claude Code Dynamic workflows 如何把大量 subagents 编排成可运行脚本，读 [`docs/coding-agents/research/workflows/06-anthropic-dynamic-workflows.md`](docs/coding-agents/research/workflows/06-anthropic-dynamic-workflows.md)。
+19. 如果要把 Vibe Coding 的判断落实成可复制 prompt，读 [`docs/coding-agents/agent/playbooks/workflows/learning-first-vibe-coding.md`](docs/coding-agents/agent/playbooks/workflows/learning-first-vibe-coding.md)。
+20. 如果要用费曼学习法学习编程和这个仓库的资料，读 [`docs/coding-agents/agent/playbooks/workflows/feynman-learning-for-programming.md`](docs/coding-agents/agent/playbooks/workflows/feynman-learning-for-programming.md)。
+21. 如果要研究 Codex CLI 实验 Memories 功能，读 [`docs/coding-agents/codex/memory/01-codex-cli-experimental-memories.md`](docs/coding-agents/codex/memory/01-codex-cli-experimental-memories.md)。
+22. 如果要理解 LLM API 如何进入生产系统，读 [`docs/llm-api/research/01-llm-api-research.md`](docs/llm-api/research/01-llm-api-research.md)。
+23. 如果要理解 reasoning、模型能力和 benchmark，再读 [`docs/ai-models/README.md`](docs/ai-models/README.md) 下的文档。
+24. 如果要理解长上下文、prompt caching 和 agent runtime 成本，再读 [`docs/ai-models/infrastructure/01-kv-cache-research.md`](docs/ai-models/infrastructure/01-kv-cache-research.md)。
 
 一句话概括：
 
