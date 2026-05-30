@@ -15,6 +15,7 @@
 3. [`playbooks/workflows/existing-project-onboarding.md`](playbooks/workflows/existing-project-onboarding.md)：既有项目接入 agent harness 和 TDD 工作流的渐进式改造流程。
 4. [`playbooks/workflows/everyday-development.md`](playbooks/workflows/everyday-development.md)：日常开发、功能、bugfix、review 和上下文恢复入口。
 5. [`playbooks/workflows/learning-first-vibe-coding.md`](playbooks/workflows/learning-first-vibe-coding.md)：陌生技术栈下控制 diff、边做边学、独立 review 和避免学习债的工作流。
+6. [`playbooks/workflows/feynman-learning-for-programming.md`](playbooks/workflows/feynman-learning-for-programming.md)：用费曼学习法学习编程概念、coding agent 工作流和本仓库资料。
 
 ## Research：跨工具调研、方法论和设计分析
 
@@ -50,8 +51,9 @@
 11. 想系统研究 Multi-Agent：读 [`research/orchestration/02-multi-agent-research.md`](research/orchestration/02-multi-agent-research.md)。
 12. 想理解 Vibe Coding 为什么会带来 review 困境和学习债：读 [`research/workflows/04-vibe-coding-review-and-learning-debt.md`](research/workflows/04-vibe-coding-review-and-learning-debt.md)。
 13. 想把 Vibe Coding 的判断落实成可复制 prompt：读 [`playbooks/workflows/learning-first-vibe-coding.md`](playbooks/workflows/learning-first-vibe-coding.md)。
-14. 想理解 Codex 机制：从 [`codex/context/01-codex-context-compaction-principles.md`](codex/context/01-codex-context-compaction-principles.md) 开始。
-15. 想研究 Codex 实验 Memories 功能：读 [`codex/memory/01-codex-cli-experimental-memories.md`](codex/memory/01-codex-cli-experimental-memories.md)。
+14. 想用费曼学习法学习编程和本仓库资料：读 [`playbooks/workflows/feynman-learning-for-programming.md`](playbooks/workflows/feynman-learning-for-programming.md)。
+15. 想理解 Codex 机制：从 [`codex/context/01-codex-context-compaction-principles.md`](codex/context/01-codex-context-compaction-principles.md) 开始。
+16. 想研究 Codex 实验 Memories 功能：读 [`codex/memory/01-codex-cli-experimental-memories.md`](codex/memory/01-codex-cli-experimental-memories.md)。
 
 相关主题：
 

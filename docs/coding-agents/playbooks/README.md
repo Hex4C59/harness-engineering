@@ -19,6 +19,7 @@
 | 专门修 bug | [`workflows/bugfix.md`](workflows/bugfix.md) |
 | 完成前 review 和收口 | [`workflows/review-and-finish.md`](workflows/review-and-finish.md) |
 | 用陌生技术栈边做边学 | [`workflows/learning-first-vibe-coding.md`](workflows/learning-first-vibe-coding.md) |
+| 用费曼学习法学习编程和仓库资料 | [`workflows/feynman-learning-for-programming.md`](workflows/feynman-learning-for-programming.md) |
 | 只想复制一段 prompt | [`prompts/`](prompts/) |
 | 想初始化项目文档模板 | [`templates/project-harness-files.md`](templates/project-harness-files.md) |
 | 想检查是否做完 | [`checklists/`](checklists/) |

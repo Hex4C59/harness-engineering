@@ -10,3 +10,4 @@
 | 专门修 bug | [`bugfix.md`](bugfix.md) |
 | Review 和完成前收口 | [`review-and-finish.md`](review-and-finish.md) |
 | 陌生技术栈边做边学 | [`learning-first-vibe-coding.md`](learning-first-vibe-coding.md) |
+| 用费曼学习法学习编程和仓库资料 | [`feynman-learning-for-programming.md`](feynman-learning-for-programming.md) |
