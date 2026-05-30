@@ -1,0 +1,25 @@
+# Checklist: 新项目初始化
+
+- [ ] 明确项目名称、类型、目标用户和非目标。
+- [ ] 技术栈已确定；如未确定，先使用 [`../prompts/tech-stack-selection.md`](../prompts/tech-stack-selection.md)。
+- [ ] 当前目录已初始化 Git，或明确记录不能初始化的原因。
+- [ ] `.gitignore` 覆盖 OS/editor、secret、日志、缓存、覆盖率、构建产物和技术栈产物。
+- [ ] 创建 `AGENTS.md`。
+- [ ] 创建 `README.md`。
+- [ ] 创建 `docs/README.md`。
+- [ ] 创建 `docs/roadmap.md`。
+- [ ] 创建 `docs/project-status.md`。
+- [ ] 创建 `docs/development.md`。
+- [ ] 创建 `docs/testing.md`。
+- [ ] 创建 `docs/architecture/overview.md`。
+- [ ] 创建 `docs/decisions/README.md`。
+- [ ] 技术栈已确定时，创建 `docs/decisions/0001-choose-technology-stack.md`。
+- [ ] 创建 `docs/specs/README.md`。
+- [ ] 创建 `docs/plans/README.md`。
+- [ ] 创建 `docs/troubleshooting.md`。
+- [ ] 创建 `scripts/bootstrap`、`scripts/dev`、`scripts/test`、`scripts/check`。
+- [ ] 脚本接到真实命令；如果还不能接，文档里标明待补。
+- [ ] 运行一次当前可用的最小验证命令。
+- [ ] 检查 `git status`。
+- [ ] 更新 `docs/project-status.md`。
+- [ ] 给出首次提交拆分建议，但不默认执行 `git commit`。
