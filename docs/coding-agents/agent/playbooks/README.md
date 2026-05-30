@@ -38,6 +38,30 @@ playbooks/
 └── meta/         工具箱维护、扩展和命名约定
 ```
 
+## 谁来读
+
+这个目录不是全部都给 agent 自动读取。默认先由人选择入口，再让 agent 读取当前任务需要的最小材料。
+
+| 目录 | 主要读者 | 什么时候用 | 用法 |
+|---|---|---|---|
+| `workflows/` | 人为主，agent 可按需读 | 选择当前任务怎么推进 | 人先选一个 workflow；需要 agent 执行时，让 agent 只读对应 workflow |
+| `prompts/` | agent 为主 | 需要一段可直接执行的任务指令 | 人复制给 agent，或在 workflow 中点名让 agent 使用 |
+| `checklists/` | 人和 agent 共同使用 | 开始前、计划后、完成前、维护性评估 | 人用它做 gate；也可以让 agent 按 checklist 自检并报告证据 |
+| `templates/` | 人为主，agent 可辅助填充 | 初始化新项目或既有项目 harness | 人决定采用哪些模板；agent 通过只读审计补事实，不确定处保留 `待确认` |
+| `principles/` | 人为主，agent 决策前按需读 | 需要判断依赖、架构、TDD、reviewability、学习债时 | 平时人读来建立判断；高风险任务前点名让 agent 读取对应原则 |
+| `meta/` | 维护者为主 | 扩展、重命名、调整工具箱结构 | 新增 workflow / prompt / checklist / template 前先看 |
+
+简化记法：
+
+```text
+workflows = 人选路线，agent 可执行路线
+prompts = 给 agent 的话
+checklists = 人和 agent 一起过关
+templates = 复制到项目里的文件雏形
+principles = 人的判断标准，agent 高风险决策前按需读
+meta = 维护这个工具箱
+```
+
 ## 使用方式
 
 复制整个 `playbooks/` 目录到新项目，或只复制其中需要的 prompt / template。日常使用时不要从头读完整目录，先打开本页，然后按场景进入对应 workflow。

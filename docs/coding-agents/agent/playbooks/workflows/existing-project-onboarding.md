@@ -1,12 +1,14 @@
-# Workflow: 既有项目 Agent 接入
+# Workflow: 既有项目 Agent Harness 初始化
 
-既有项目接入 agent harness 时，第一目标不是把项目改成新模板，而是让 agent 看懂项目、尊重现有约定、能运行验证命令，并且不会扩大改动范围。
+既有项目通常没有现成的 harness，或者没有你习惯使用的 harness。这个流程用于在已有仓库上初始化一个**最小、低侵入、可逐步增强**的 agent harness。
+
+它和新项目 bootstrap 的区别是：新项目可以从零设计目录和规则；既有项目必须先发现已有秩序，再补入口、状态、命令和验证。第一目标不是把项目改成新模板，而是让 agent 看懂项目、尊重现有约定、能运行验证命令，并且不会扩大改动范围。
 
 核心流程：
 
 ```text
 只读审计 -> 找到现有事实来源 -> 建立最小 AGENTS.md
--> 补 docs/status 和 testing -> 包装已有命令
+-> 补最小 docs/status/development/testing -> 包装已有命令
 -> 小步验证 -> 再开始写业务代码
 ```
 
@@ -14,6 +16,8 @@
 
 - 接手一个已有仓库。
 - 给老项目补 `AGENTS.md`。
+- 给没有 harness 的老项目初始化最小 agent harness。
+- 把不符合个人习惯的既有 harness 调整成可接手、可验证、可 review 的形态。
 - 想把已有项目改成更适合 Codex / Claude Code / Cursor 协作。
 - 项目没有统一验证入口，想补 `scripts/check`。
 - 项目文档散落，想让 agent 有渐进式读取路径。
