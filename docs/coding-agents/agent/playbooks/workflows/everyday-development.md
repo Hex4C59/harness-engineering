@@ -7,7 +7,9 @@
 | 当前情况 | 用什么 |
 |---|---|
 | 不熟悉代码，不知道从哪改 | [`../prompts/scout.md`](../prompts/scout.md) |
-| 需求不清楚，方案不确定 | [`../prompts/solution-comparison.md`](../prompts/solution-comparison.md) |
+| 需求不清楚，想先澄清目标 | [`../prompts/brainstorming.md`](../prompts/brainstorming.md) |
+| 方案不确定，需要比较路径 | [`../prompts/solution-comparison.md`](../prompts/solution-comparison.md) |
+| 需求已清楚，需要写执行计划 | [`../prompts/writing-plans.md`](../prompts/writing-plans.md) |
 | 要做新功能 | [`../prompts/new-feature-tdd.md`](../prompts/new-feature-tdd.md) |
 | 已经有计划，要执行下一步 | [`../prompts/execute-plan-slice.md`](../prompts/execute-plan-slice.md) |
 | 要修 bug | [`bugfix.md`](bugfix.md) |
@@ -28,7 +30,7 @@
 
 1. 读取入口上下文：[`../prompts/context-entry.md`](../prompts/context-entry.md)。
 2. 判断任务类型和 blast radius。
-3. 必要时先 scout 或方案比较。
+3. 必要时先 scout、brainstorming 或方案比较。
 4. 需求不清时写 Spec。
 5. 非平凡任务写 Execution Plan。
 6. 拆 reviewable slices。

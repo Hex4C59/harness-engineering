@@ -56,4 +56,6 @@ Skills 适合沉淀固定时刻、固定判断框架、跨项目重复使用的�
 
 | Skill | 用途 |
 |---|---|
+| [`brainstorming`](brainstorming/SKILL.md) | 在计划或实现前澄清模糊需求，比较方案，并产出可确认的方向、验收标准和下一步 |
+| [`writing-plans`](writing-plans/SKILL.md) | 将已确认需求或 Spec 写成 `docs/plans/*.md` 执行计划，拆 reviewable slices、TDD 步骤、验证和回滚 |
 | [`commit-gate`](commit-gate/SKILL.md) | 判断当前 Git 工作区是否到达提交边界，并生成提交拆分和 commit message 建议 |

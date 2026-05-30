@@ -8,7 +8,9 @@
 |---|---|
 | 先读项目上下文 | [`context-entry.md`](context-entry.md) |
 | 只读探路 | [`scout.md`](scout.md) |
+| Brainstorming / 需求澄清 | [`brainstorming.md`](brainstorming.md) |
 | 比较方案 | [`solution-comparison.md`](solution-comparison.md) |
+| 写 Execution Plan | [`writing-plans.md`](writing-plans.md) |
 | 新功能 TDD | [`new-feature-tdd.md`](new-feature-tdd.md) |
 | 按已有计划执行 | [`execute-plan-slice.md`](execute-plan-slice.md) |
 | 修 bug | [`bugfix.md`](bugfix.md) |
