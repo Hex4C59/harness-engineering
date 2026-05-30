@@ -1,6 +1,6 @@
 # 编程高手如何使用 Coding Agent：经验调研
 
-调研日期：2026-05-29
+调研日期：2026-05-31
 
 ## 这篇文档回答什么
 
@@ -16,12 +16,39 @@
 
 > 高手不是把 coding agent 当“自动程序员”，而是把它放进一个明确的工程系统里：人类负责目标、边界、判断和 review；agent 负责搜索、实现、机械修改、测试补齐、方案探索和重复劳动。真正拉开差距的不是一句神奇 prompt，而是规格、上下文、测试、权限、review、并行隔离和失败回流。
 
+## 先回答：`docs/coding-agents/agent` 算 harness 还是提示词？
+
+你的 `docs/coding-agents/agent/` 更准确地说是 **agent harness assets**，不是单纯 prompt。
+
+它里面既有 prompt，也有更高层的 harness 组件：
+
+| 目录 | 更像什么 | 作用 |
+|---|---|---|
+| `playbooks/prompts/` | Prompt library | 可复制给 agent 的单次任务指令 |
+| `playbooks/workflows/` | Workflow harness | 规定某类任务的步骤、入口和退出条件 |
+| `playbooks/checklists/` | Review / gate harness | 让任务在开始前、实现中、完成前有放行条件 |
+| `playbooks/templates/` | Project harness bootstrap | 复制到项目里的 `AGENTS.md`、docs、scripts 模板 |
+| `playbooks/principles/` | Decision framework | 在依赖、架构、TDD、reviewability 等场景给判断标准 |
+| `skills/` | Runtime skill assets | 可升级成 Codex / Claude / Copilot 等 runtime 可发现的能力包 |
+| `mcp/` | Tool connection assets | 记录 MCP 工具连接、权限和安全边界 |
+
+所以它的定位可以写成：
+
+```text
+这不是“提示词合集”，而是一套轻量 agent harness 工具箱。
+Prompt 是其中一层；真正的目标是把上下文、流程、验证、权限和 review 组织起来。
+```
+
+这和 OpenAI Codex、Claude Code、GitHub Agent HQ、Jesse Vincent 的 Superpowers、社区 Claude Code workflow 讨论里的方向一致：高手越来越少依赖一次性长 prompt，更多把常用流程拆成 `AGENTS.md` / `CLAUDE.md`、commands、skills、hooks、scripts、subagents、worktrees、CI 和 PR review。
+
 ## 来源说明
 
 本文优先使用作者原文、官方工程博客和带实验设计的技术报告。社区讨论只作为线索，不作为主要依据。
 
 | 来源 | 作者 / 团队 | 类型 | 主要价值 |
 |---|---|---|---|
+| [How OpenAI uses Codex](https://cdn.openai.com/pdf/6a2631dc-783e-479b-b1a4-af0cfbd38630/how-openai-uses-codex.pdf) | OpenAI | 技术报告 / 工作流报告 | OpenAI 内部如何把 Codex 用在 full-stack、product、infrastructure、security、docs 和 enterprise workflows |
+| [Codex best practices](https://developers.openai.com/codex/learn/best-practices) | OpenAI | 官方文档 | `AGENTS.md`、任务拆分、验证、skills、review、长任务和并行工作的实践建议 |
 | [Thoughts on coding agents](https://dennybritz.com/posts/coding-agents) | Denny Britz | 资深工程师个人经验 | Codex / Claude CLI 工作流、规划模式、diff review、并行 agent 的边界 |
 | [My LLM coding workflow going into 2026](https://addyosmani.com/blog/ai-coding-workflow) | Addy Osmani | 资深工程师实践总结 | spec 先行、小步迭代、上下文打包、测试作为 guardrail |
 | [Embracing the parallel coding agent lifestyle](https://simonwillison.net/2025/Oct/5/parallel-coding-agents) | Simon Willison | 资深开发者实践总结 | 并行 agent 的适用场景、review 瓶颈、research / maintenance / POC 模式 |
@@ -30,10 +57,14 @@
 | [Just Talk To It](https://steipete.me/posts/just-talk-to-it) | Peter Steinberger | Codex CLI 重度使用经验 | blast radius、短 prompt、截图、并行终端、同目录多 agent 的高强度个人流派 |
 | [The 7 Prompting Habits of Highly Effective Engineers](https://sketch.dev/blog/seven-prompting-habits) | Josh Bleecher Snyder / Sketch | agent prompting 技巧 | scout、示范一次再让 agent 复制、把人类意图转成可执行上下文 |
 | [Claude Code best practices](https://www.anthropic.com/engineering/claude-code-best-practices) | Anthropic | 官方最佳实践 | `CLAUDE.md`、上下文管理、subagents、hooks、skills、writer / reviewer 模式 |
+| [Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips) | Anthropic | 官方帮助文档 | 多会话、多 worktree、计划模式、IDE 集成、custom slash commands、安全和上下文技巧 |
+| [How and when to use subagents in Claude Code](https://claude.com/blog/how-and-when-to-use-subagents-in-claude-code) | Anthropic | 官方工程博客 | subagent、skill、hook 的边界，以及何时把工作委托给专门 agent |
 | [Pick your agent: Use Claude and Codex on Agent HQ](https://github.blog/news-insights/company-news/pick-your-agent-use-claude-and-codex-on-agent-hq) | GitHub | 官方产品 / 工程实践 | 多 agent 比较方案、PR 内 review、企业权限和审计 |
 | [Karpathy skills on OpenClaw](https://www.augmentcode.com/blog/karpathy-skills-on-openclaw-agents-don-t-write-better-code-but-they-do-it-more-efficiently) | Augment Code | 实验报告 | `AGENTS.md` 规则对不同 agent harness 的影响，强调轻量规则要校准 |
+| [Claude.md, rules, hooks, agents, commands, skills...](https://www.reddit.com/r/ClaudeCode/comments/1pxou18/claudemd_rules_hooks_agents_commands_skills/) | r/ClaudeCode 社区 | 社区讨论 | 开发者如何区分 `CLAUDE.md`、skills、hooks、commands、agents、MCP；只作社区信号 |
+| [Do you actually use hooks in Claude Code?](https://www.reddit.com/r/ClaudeCode/comments/1tkvg6t/do_you_actually_use_hooks_in_claude_code/) | r/ClaudeCode 社区 | 社区讨论 | hooks 常见用途：编辑后跑 lint/typecheck、阻止越界命令、替代反复写在 `CLAUDE.md` 的提醒 |
 
-注意：这些人不是完全同一种流派。Simon Willison 和 Jesse Vincent 更偏“计划、隔离、并行但谨慎”；Peter Steinberger 更偏“短 prompt、高频并行、凭经验控制 blast radius”；Denny Britz 则明显提醒大家不要高估并行 agent，因为真正瓶颈经常是人类 review 和上下文判断。
+注意：这些人不是完全同一种流派。Simon Willison 和 Jesse Vincent 更偏“计划、隔离、并行但谨慎”；Peter Steinberger 更偏“短 prompt、高频并行、凭经验控制 blast radius”；Denny Britz 则明显提醒大家不要高估并行 agent，因为真正瓶颈经常是人类 review 和上下文判断。Reddit / HN 这类社区材料只作为“用户正在怎么组织工具”的信号，不作为事实结论的唯一依据。
 
 ## 总体共识
 
@@ -348,6 +379,96 @@ research-options：不改代码，只调研 2-3 个方案
 ```
 
 这些可以变成 skills、slash commands 或固定 prompt 模板。
+
+## 社区和高手的常见组合
+
+把官方建议、个人博客和社区讨论放在一起看，成熟用户不是只用一个 prompt，而是组合多层机制。
+
+### 组合一：`AGENTS.md` / `CLAUDE.md` 做入口，不做百科
+
+常见写法：
+
+```text
+项目目标 + 目录地图 + 常用命令 + 禁止事项 + 完成标准
+```
+
+高手会避免把所有风格偏好、框架知识、长 checklist 都塞进去。原因很简单：入口文件会被频繁加载，越长越容易稀释真正硬约束。
+
+你的做法可以继续沿用：
+
+```text
+AGENTS.md = 入口地图和硬边界
+docs/ = 长期上下文
+playbooks/ = 可选择的工作流
+skills/ = 运行时可发现能力
+scripts/ = 确定性验证命令
+```
+
+### 组合二：Plan mode / ask mode 先让 agent 探路
+
+Claude Code、Codex、Denny Britz、Jesse Vincent、Sketch 的实践都有一个共同点：非平凡任务先让 agent 读代码、列方案、写计划，不直接改。
+
+典型句式：
+
+```text
+先不要修改文件。请只读审计当前实现，列出相关文件、风险、最小方案和验证命令。
+```
+
+这对应你 playbooks 里的 `scout`、`existing-project-audit`、`solution-comparison`。
+
+### 组合三：Scripts / CI 做硬验证
+
+社区里很多 hooks 和 commands 的真实用途很朴素：编辑后跑 formatter、lint、typecheck、test；提交前跑 check；阻止危险命令。
+
+这说明：
+
+```text
+不要把“记得验证”只写成自然语言提醒。
+能脚本化的验证，应沉淀成 scripts/check、CI 或 hook。
+```
+
+### 组合四：Skill / command 做重复流程
+
+当一个流程经常重复，例如 bugfix、review、release note、migration、docs update，高手会把它变成：
+
+- Claude slash command。
+- Codex / Claude skill。
+- repo-local playbook。
+- script + prompt 的组合。
+
+判断标准很实用：
+
+```text
+如果你第三次复制同一段 prompt，就该考虑把它升级成 playbook / command / skill。
+```
+
+### 组合五：Subagent / parallel agent 只用于隔离任务
+
+Anthropic 官方、Simon Willison、Jesse Vincent 和 Denny Britz 的共识是：并行有用，但 review 是瓶颈。
+
+比较稳的并行方式：
+
+- 一个 agent 做 research，另一个等人确认后实现。
+- 一个 agent 做实现，另一个只 review diff。
+- 不同方案放不同 worktree。
+- 低风险维护任务并行，例如补文档、修 lint、清 warnings。
+
+高风险方式：
+
+- 多个 agent 在同一目录同时改公共接口。
+- 没有测试保护的并行重构。
+- 人还没看 diff 就让另一个 agent 继续堆改动。
+
+### 组合六：Hooks 用来约束生命周期，不替代判断
+
+社区讨论里，hooks 的常见价值不是“智能”，而是自动执行固定检查：
+
+- 写文件后跑 formatter / lint。
+- tool call 前阻止危险命令。
+- stop 前要求检查 diff。
+- session start 时提醒读取入口文档。
+
+所以 hooks 更像 guardrail，不是 workflow 本身。适合放“每次都必须发生”的规则；不适合放需要语义判断的大流程。
 
 ## 分歧：计划派 vs 直接对话派
 
@@ -705,13 +826,23 @@ Augment 的实验提醒我们：规则有用，但不是越多越好。你的 `A
 
 ## 参考资料
 
-- Denny Britz, [Thoughts on coding agents](https://dennybritz.com/posts/coding-agents), 2026-02-22.
-- Addy Osmani, [My LLM coding workflow going into 2026](https://addyosmani.com/blog/ai-coding-workflow).
-- Simon Willison, [Embracing the parallel coding agent lifestyle](https://simonwillison.net/2025/Oct/5/parallel-coding-agents), 2025-10-05.
-- Jesse Vincent, [How I'm using coding agents in September, 2025](https://blog.fsck.com/2025/10/05/how-im-using-coding-agents-in-september-2025), 2025-10-05.
-- Jesse Vincent, [Superpowers: How I'm using coding agents in October 2025](https://blog.fsck.com/2025/10/09/superpowers), 2025-10-09.
-- Peter Steinberger, [Just Talk To It - the no-bs Way of Agentic Engineering](https://steipete.me/posts/just-talk-to-it).
-- Josh Bleecher Snyder / Sketch, [The 7 Prompting Habits of Highly Effective Engineers](https://sketch.dev/blog/seven-prompting-habits), 2025-05-20.
-- Anthropic, [Claude Code best practices](https://www.anthropic.com/engineering/claude-code-best-practices).
-- GitHub Blog, [Pick your agent: Use Claude and Codex on Agent HQ](https://github.blog/news-insights/company-news/pick-your-agent-use-claude-and-codex-on-agent-hq), 2026-02-04.
-- Augment Code, [Karpathy skills on OpenClaw: agents don't write better code. But they do it more efficiently.](https://www.augmentcode.com/blog/karpathy-skills-on-openclaw-agents-don-t-write-better-code-but-they-do-it-more-efficiently).
+访问日期均为 2026-05-31。
+
+| 标题 | 作者或机构 | 发布日期 | 类型 | 链接 |
+|---|---|---:|---|---|
+| How OpenAI uses Codex | OpenAI | 2026，PDF 未标注精确日期 | technical report | https://cdn.openai.com/pdf/6a2631dc-783e-479b-b1a4-af0cfbd38630/how-openai-uses-codex.pdf |
+| Codex best practices | OpenAI | 未标注 | docs | https://developers.openai.com/codex/learn/best-practices |
+| Thoughts on coding agents | Denny Britz | 2026-02-22 | blog | https://dennybritz.com/posts/coding-agents |
+| My LLM coding workflow going into 2026 | Addy Osmani | 2025-12-28 | blog | https://addyosmani.com/blog/ai-coding-workflow |
+| Embracing the parallel coding agent lifestyle | Simon Willison | 2025-10-05 | blog | https://simonwillison.net/2025/Oct/5/parallel-coding-agents |
+| How I'm using coding agents in September, 2025 | Jesse Vincent | 2025-10-05 | blog | https://blog.fsck.com/2025/10/05/how-im-using-coding-agents-in-september-2025 |
+| Superpowers: How I'm using coding agents in October 2025 | Jesse Vincent | 2025-10-09 | blog | https://blog.fsck.com/2025/10/09/superpowers |
+| Just Talk To It - the no-bs Way of Agentic Engineering | Peter Steinberger | 2026-03-14 | blog | https://steipete.me/posts/just-talk-to-it |
+| The 7 Prompting Habits of Highly Effective Engineers | Josh Bleecher Snyder / Sketch | 2025-05-20 | blog | https://sketch.dev/blog/seven-prompting-habits |
+| Claude Code best practices | Anthropic | 2025-04-18 | docs / blog | https://www.anthropic.com/engineering/claude-code-best-practices |
+| Claude Code power user tips | Anthropic | 未标注 | docs | https://support.claude.com/en/articles/14554000-claude-code-power-user-tips |
+| How and when to use subagents in Claude Code | Anthropic | 未标注 | blog | https://claude.com/blog/how-and-when-to-use-subagents-in-claude-code |
+| Pick your agent: Use Claude and Codex on Agent HQ | GitHub Blog | 2026-02-04 | blog | https://github.blog/news-insights/company-news/pick-your-agent-use-claude-and-codex-on-agent-hq |
+| Karpathy skills on OpenClaw: agents don't write better code. But they do it more efficiently. | Augment Code | 未标注 | technical report / blog | https://www.augmentcode.com/blog/karpathy-skills-on-openclaw-agents-don-t-write-better-code-but-they-do-it-more-efficiently |
+| Claude.md, rules, hooks, agents, commands, skills... | r/ClaudeCode 社区 | 2026-05-09 | community | https://www.reddit.com/r/ClaudeCode/comments/1pxou18/claudemd_rules_hooks_agents_commands_skills/ |
+| Do you actually use hooks in Claude Code? | r/ClaudeCode 社区 | 2026-04-17 | community | https://www.reddit.com/r/ClaudeCode/comments/1tkvg6t/do_you_actually_use_hooks_in_claude_code/ |
