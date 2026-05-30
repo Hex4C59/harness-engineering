@@ -5,7 +5,7 @@
 文档：
 
 1. [`01-how-code-capability-is-trained.md`](01-how-code-capability-is-trained.md)：代码能力是怎么训练出来的。
-2. [`04-reasoning-research.md`](04-reasoning-research.md)：围绕 reasoning 的论文、模型、benchmark、工程实践、社区争议和历史类比调研。
+2. [`02-reasoning-research.md`](02-reasoning-research.md)：围绕 reasoning 的论文、模型、benchmark、工程实践、社区争议和历史类比调研。
 
 相关目录：
 

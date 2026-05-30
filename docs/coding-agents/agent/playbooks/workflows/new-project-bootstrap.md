@@ -5,7 +5,7 @@
 ## 什么时候用
 
 - 从零开始新项目。
-- 想把 `AGENTS.md`、`docs/`、`scripts/` 和验证流程一次性立好。
+- 想把 `AGENTS.md`、`docs/`、`docs/agent/playbooks/`、`scripts/` 和验证流程一次性立好。
 - 希望后续每个功能都能按 Spec、Plan、TDD 和 Reviewable Slice 推进。
 
 不适合既有项目接入；既有项目用 [`existing-project-onboarding.md`](existing-project-onboarding.md)。
@@ -14,8 +14,9 @@
 
 1. 技术栈没定时，先用 [`../prompts/tech-stack-selection.md`](../prompts/tech-stack-selection.md)。
 2. 技术栈确定后，用 [`../prompts/new-project-bootstrap.md`](../prompts/new-project-bootstrap.md) 初始化 harness。
-3. 按 [`../checklists/new-project-bootstrap.md`](../checklists/new-project-bootstrap.md) 检查是否漏项。
-4. 模板来源见 [`../templates/project-harness-files.md`](../templates/project-harness-files.md) 和 [`../templates/scripts.md`](../templates/scripts.md)。
+3. 用 [`../prompts/checklist-self-audit.md`](../prompts/checklist-self-audit.md) 按 [`../checklists/new-project-bootstrap.md`](../checklists/new-project-bootstrap.md) 检查是否漏项。
+4. 能访问当前工具箱源目录时，把整个 `playbooks/` 复制到新项目的 `docs/agent/playbooks/`；只能访问单个 prompt 时，先创建占位入口并在 `docs/project-status.md` 标明待补。
+5. 模板来源见 [`../templates/project-harness-files.md`](../templates/project-harness-files.md) 和 [`../templates/scripts.md`](../templates/scripts.md)。
 
 ## 初始化后的工作方式
 

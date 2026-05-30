@@ -937,8 +937,8 @@ AI 评论是线索，不是结论。
 
 - [`01-expert-coding-agent-workflows.md`](01-expert-coding-agent-workflows.md)：先规格、再实现、小步验证，是降低 review 成本的前置条件。
 - [`../orchestration/01-when-to-use-subagents.md`](../orchestration/01-when-to-use-subagents.md)：AI review 是 subagent 的典型适用场景，因为它需要独立上下文和专项视角。
-- [`../../playbooks/workflows/new-project-bootstrap.md`](../../playbooks/workflows/new-project-bootstrap.md)：TDD 是 AI review 可靠性的底座之一。
-- [`../../playbooks/workflows/existing-project-onboarding.md`](../../playbooks/workflows/existing-project-onboarding.md)：既有项目需要先补上下文、测试和规则，AI reviewer 才不会乱猜。
+- [`../../agent/playbooks/workflows/new-project-bootstrap.md`](../../agent/playbooks/workflows/new-project-bootstrap.md)：TDD 是 AI review 可靠性的底座之一。
+- [`../../agent/playbooks/workflows/existing-project-onboarding.md`](../../agent/playbooks/workflows/existing-project-onboarding.md)：既有项目需要先补上下文、测试和规则，AI reviewer 才不会乱猜。
 
 可以把整体工作流理解成：
 

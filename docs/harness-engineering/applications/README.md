@@ -4,7 +4,7 @@
 
 文档：
 
-1. [`04-harness-engineering-for-noclaw.md`](04-harness-engineering-for-noclaw.md)：这套思想如何映射到 noclaw。
+1. [`01-harness-engineering-for-noclaw.md`](01-harness-engineering-for-noclaw.md)：这套思想如何映射到 noclaw。
 
 相关目录：
 

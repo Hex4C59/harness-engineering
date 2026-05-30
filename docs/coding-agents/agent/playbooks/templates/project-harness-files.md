@@ -15,6 +15,20 @@ project/
 │   ├── project-status.md
 │   ├── development.md
 │   ├── testing.md
+│   ├── agent/
+│   │   ├── README.md
+│   │   ├── playbooks/
+│   │   │   ├── README.md
+│   │   │   ├── workflows/
+│   │   │   ├── prompts/
+│   │   │   ├── checklists/
+│   │   │   ├── templates/
+│   │   │   ├── principles/
+│   │   │   └── meta/
+│   │   ├── skills/
+│   │   │   └── README.md
+│   │   └── mcp/
+│   │       └── README.md
 │   ├── architecture/
 │   │   └── overview.md
 │   ├── decisions/
@@ -43,6 +57,9 @@ docs/roadmap.md
 docs/project-status.md
 docs/development.md
 docs/testing.md
+docs/agent/README.md
+docs/agent/skills/README.md
+docs/agent/mcp/README.md
 scripts/check
 ```
 
@@ -73,6 +90,16 @@ coverage/
 dist/
 build/
 out/
+
+# local agent assets copied from another repository
+# Keep project-specific harness docs tracked, but do not vendor external agent assets by default.
+docs/agent/playbooks/
+docs/agent/skills/*
+!docs/agent/skills/
+!docs/agent/skills/README.md
+docs/agent/mcp/*
+!docs/agent/mcp/
+!docs/agent/mcp/README.md
 ```
 
 按技术栈补充：
@@ -127,11 +154,17 @@ out/
 4. `docs/roadmap.md`：长期方向、Now/Next/Later 和暂时不做。
 5. `docs/development.md`：开发命令、工具链和本地环境。
 6. `docs/testing.md`：测试策略和验证命令。
-7. 与当前任务相关的 `docs/architecture/`、`docs/decisions/`、`docs/specs/` 或 `docs/plans/` 文件。
+7. `docs/agent/playbooks/`：coding agent 工作流、可复制 prompt、检查清单和原则。
+8. `docs/agent/skills/`：可选的项目级或个人能力模板。
+9. `docs/agent/mcp/`：可选的 MCP 配置示例和启用说明。
+10. 与当前任务相关的 `docs/architecture/`、`docs/decisions/`、`docs/specs/` 或 `docs/plans/` 文件。
+
+说明：`docs/agent/playbooks/`、`docs/agent/skills/` 和 `docs/agent/mcp/` 默认是本地复制的 agent 资产，可能被 `.gitignore` 忽略；如果目录不存在，请先让用户提供或复制，不要凭空编造。
 
 ## 工作方式
 
 - 先理解需求和现有约定，再改代码。
+- 日常开发优先参考 `docs/agent/playbooks/workflows/everyday-development.md`；修 bug 参考 `docs/agent/playbooks/workflows/bugfix.md`；完成前参考 `docs/agent/playbooks/workflows/review-and-finish.md`。
 - 对非平凡任务，先区分 Roadmap、Spec、Execution Plan 和 Project Status：长期方向放 roadmap，需求意图放 spec，执行步骤放 plans，当前接手点放 project-status。
 - 如果需求、边界或验收标准不清楚，先写或更新 Spec，不要直接写实现计划。
 - Execution Plan 必须包含范围、非目标、关联 Spec / Roadmap、影响文件、reviewable slices、测试、验证命令和回滚方式。
@@ -182,10 +215,13 @@ out/
 3. `development.md`：本地开发、脚本、依赖、环境变量。
 4. `testing.md`：测试策略、TDD 约定、验证命令。
 5. `architecture/overview.md`：系统结构和边界。
-6. `decisions/`：重要技术决策记录。
-7. `specs/`：复杂功能的需求意图、验收标准和设计边界。
-8. `plans/`：单个任务的 Execution Plan 和 slice 状态。
-9. `troubleshooting.md`：常见问题和失败记录。
+6. `agent/playbooks/`：coding agent 工作流、prompts、checklists、templates 和 principles。
+7. `agent/skills/`：可选 skill 模板和启用边界。
+8. `agent/mcp/`：可选 MCP 配置示例和凭据边界。
+9. `decisions/`：重要技术决策记录。
+10. `specs/`：复杂功能的需求意图、验收标准和设计边界。
+11. `plans/`：单个任务的 Execution Plan 和 slice 状态。
+12. `troubleshooting.md`：常见问题和失败记录。
 
 ## 写入约定
 
@@ -194,6 +230,56 @@ out/
 - 临时推理留在对话或计划草稿，不要污染 roadmap。
 - 已验证的失败和修复写入 `troubleshooting.md`。
 - 影响架构的选择写入 `decisions/`。
+```
+
+## `docs/agent/README.md`
+
+```md
+# Agent
+
+这里保存 coding agent 协作入口、工作流和可复制 prompt。
+
+## 入口
+
+- 日常开发：`playbooks/workflows/everyday-development.md`
+- 修 bug：`playbooks/workflows/bugfix.md`
+- 新功能 TDD：`playbooks/prompts/new-feature-tdd.md`
+- 完成前收口：`playbooks/workflows/review-and-finish.md`
+- 上下文恢复：`playbooks/prompts/context-recovery.md`
+
+## 资产目录
+
+- `playbooks/`：工作流、prompts、checklists、templates 和 principles。
+- `skills/`：可选 skill 模板；启用前必须确认权限和适用范围。
+- `mcp/`：可选 MCP 配置示例；不要提交真实 token、私钥或个人路径。
+
+## 使用方式
+
+不要让 agent 一次性读取整个 `playbooks/`。先根据任务选择一个 workflow，再读取对应 prompt 和 checklist。
+
+## Git 约定
+
+`playbooks/` 默认是本地复制的外部 agent 工具箱，可以不进入 Git。`skills/` 和 `mcp/` 下的真实本地资产、配置和凭据默认不进入 Git，但各自的 `README.md` 应该进入 Git，用来记录启用方式和安全边界。项目专属的 `AGENTS.md`、`docs/project-status.md`、`docs/development.md`、`docs/testing.md` 和本文件应该进入 Git，作为新会话和协作者接手项目的稳定入口。
+```
+
+## `docs/agent/skills/README.md`
+
+```md
+# Skills
+
+这里保存可选的项目级或个人 skill 模板。
+
+默认不启用高风险操作。任何会写入文件、提交代码、推送、部署、访问外部服务或读取敏感数据的 skill，都必须先说明权限边界并获得用户确认。
+```
+
+## `docs/agent/mcp/README.md`
+
+```md
+# MCP
+
+这里保存可选 MCP 配置示例和启用说明。
+
+默认只提交示例配置，不提交真实 token、私钥、生产地址或个人绝对路径。高权限、写入型、部署型 MCP 不默认启用。
 ```
 
 ## `docs/roadmap.md`

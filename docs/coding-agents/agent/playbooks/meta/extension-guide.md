@@ -19,7 +19,7 @@
 1. 先搜索是否已有同类内容：
 
    ```bash
-   rg "关键词" docs/coding-agents/playbooks
+   rg "关键词" docs/coding-agents/agent/playbooks
    ```
 
 2. 如果是已有 prompt 的变体，优先更新原 prompt，不新建重复文件。
@@ -29,7 +29,7 @@
 6. 最后检查旧链接和目录链接：
 
    ```bash
-   rg "新文件名|旧文件名" docs/coding-agents/playbooks README.md docs/coding-agents/README.md
+   rg "新文件名|旧文件名" docs/coding-agents/agent/playbooks README.md docs/coding-agents/README.md
    ```
 
 ## 文件粒度

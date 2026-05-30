@@ -14,6 +14,7 @@
 | 修 bug | [`bugfix.md`](bugfix.md) |
 | 拆 reviewable slices | [`reviewable-slices.md`](reviewable-slices.md) |
 | Review Gate | [`review-gate.md`](review-gate.md) |
+| Checklist 自检 | [`checklist-self-audit.md`](checklist-self-audit.md) |
 | 恢复上下文 | [`context-recovery.md`](context-recovery.md) |
 | 完成前检查 | [`final-check.md`](final-check.md) |
 | 并行 research | [`parallel-research.md`](parallel-research.md) |

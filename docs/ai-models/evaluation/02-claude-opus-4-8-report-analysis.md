@@ -449,8 +449,8 @@ Harness 应该要求模型在结束时报告：
 这次 Opus 4.8 发布可以作为本项目里几个核心观点的例证：
 
 - [`../../coding-agents/research/evaluation/01-how-to-evaluate-code-cli-and-models.md`](../../coding-agents/research/evaluation/01-how-to-evaluate-code-cli-and-models.md)：不要比较裸模型，要比较 model-harness configuration。
-- [`02-understanding-frontier-model-benchmarks.md`](02-understanding-frontier-model-benchmarks.md)：benchmark 是任务集、运行协议、评分器和模型配置的组合。
-- [`../../harness-engineering/practices/05-latest-harness-engineering-practices.md`](../../harness-engineering/practices/05-latest-harness-engineering-practices.md)：大公司都在把 agent 当作运行在受控环境里的软件系统。
+- [`01-understanding-frontier-model-benchmarks.md`](01-understanding-frontier-model-benchmarks.md)：benchmark 是任务集、运行协议、评分器和模型配置的组合。
+- [`../../harness-engineering/practices/01-latest-harness-engineering-practices.md`](../../harness-engineering/practices/01-latest-harness-engineering-practices.md)：大公司都在把 agent 当作运行在受控环境里的软件系统。
 
 Opus 4.8 的官方报告尤其说明：同一个模型，在不同 effort、context、tools、safeguard、multi-agent harness 下，表现会完全不同。
 

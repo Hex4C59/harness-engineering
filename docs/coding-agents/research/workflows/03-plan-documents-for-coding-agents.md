@@ -1022,7 +1022,7 @@ docs/plans/YYYY-MM-DD-feature-name.md
 
 ## 推荐落地到你的 playbook
 
-你现有的 [`../../playbooks/workflows/new-project-bootstrap.md`](../../playbooks/workflows/new-project-bootstrap.md) 和 [`../../playbooks/templates/project-harness-files.md`](../../playbooks/templates/project-harness-files.md) 已经覆盖 `docs/plans/` 和 `docs/project-status.md`，方向是对的。建议后续迭代时补强三点。
+你现有的 [`../../agent/playbooks/workflows/new-project-bootstrap.md`](../../agent/playbooks/workflows/new-project-bootstrap.md) 和 [`../../agent/playbooks/templates/project-harness-files.md`](../../agent/playbooks/templates/project-harness-files.md) 已经覆盖 `docs/plans/` 和 `docs/project-status.md`，方向是对的。建议后续迭代时补强三点。
 
 ### 1. 给 `docs/plans/README.md` 明确分层
 

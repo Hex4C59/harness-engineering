@@ -15,13 +15,13 @@
 1. [`foundations/01-what-is-harness-engineering.md`](foundations/01-what-is-harness-engineering.md)：什么是 harness engineering。
 2. [`foundations/02-why-harness-engineering.md`](foundations/02-why-harness-engineering.md)：为什么不能只靠提示词、上下文或更强模型。
 3. [`foundations/03-how-to-use-harness-engineering.md`](foundations/03-how-to-use-harness-engineering.md)：怎么在项目中落地 harness。
-4. [`applications/04-harness-engineering-for-noclaw.md`](applications/04-harness-engineering-for-noclaw.md)：这套思想如何映射到 noclaw。
-5. [`practices/05-latest-harness-engineering-practices.md`](practices/05-latest-harness-engineering-practices.md)：最新 harness engineering 实践经验调研。
-6. [`layers/06-prompt-engineering-research.md`](layers/06-prompt-engineering-research.md)：Prompt Engineering 横向调研。
-7. [`layers/07-tool-use-research.md`](layers/07-tool-use-research.md)：Tool Use 调研：从函数调用到 agent action layer。
-8. [`layers/08-agent-loop-research.md`](layers/08-agent-loop-research.md)：Agent Loop 调研：从 ReAct 循环到生产级 agent runtime。
-9. [`layers/09-context-engineering-research.md`](layers/09-context-engineering-research.md)：Context Engineering 调研：agent 系统里的上下文治理工程。
-10. [`layers/10-planning-research.md`](layers/10-planning-research.md)：Agent Planning 调研：从模型推理能力到可审计执行控制面。
+4. [`applications/01-harness-engineering-for-noclaw.md`](applications/01-harness-engineering-for-noclaw.md)：这套思想如何映射到 noclaw。
+5. [`practices/01-latest-harness-engineering-practices.md`](practices/01-latest-harness-engineering-practices.md)：最新 harness engineering 实践经验调研。
+6. [`layers/01-prompt-engineering-research.md`](layers/01-prompt-engineering-research.md)：Prompt Engineering 横向调研。
+7. [`layers/02-tool-use-research.md`](layers/02-tool-use-research.md)：Tool Use 调研：从函数调用到 agent action layer。
+8. [`layers/03-agent-loop-research.md`](layers/03-agent-loop-research.md)：Agent Loop 调研：从 ReAct 循环到生产级 agent runtime。
+9. [`layers/04-context-engineering-research.md`](layers/04-context-engineering-research.md)：Context Engineering 调研：agent 系统里的上下文治理工程。
+10. [`layers/05-planning-research.md`](layers/05-planning-research.md)：Agent Planning 调研：从模型推理能力到可审计执行控制面。
 
 相关主题：
 

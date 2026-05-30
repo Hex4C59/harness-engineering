@@ -241,9 +241,9 @@ coding agent 可以是 tutor，也可以变成代工。区别在工作流。
 
 第 1 天：建立仓库地图
 
-- 读 [`../../../../README.md`](../../../../README.md)。
-- 读 [`../../../../AGENTS.md`](../../../../AGENTS.md)。
-- 读 [`../../README.md`](../../README.md)。
+- 读 [`../../../../../README.md`](../../../../../README.md)。
+- 读 [`../../../../../AGENTS.md`](../../../../../AGENTS.md)。
+- 读 [`../../../README.md`](../../../README.md)。
 
 费曼输出：
 
@@ -253,7 +253,7 @@ coding agent 可以是 tutor，也可以变成代工。区别在工作流。
 
 第 2 天：理解 harness engineering
 
-- 读 [`../../../harness-engineering/foundations/01-what-is-harness-engineering.md`](../../../harness-engineering/foundations/01-what-is-harness-engineering.md)。
+- 读 [`../../../../harness-engineering/foundations/01-what-is-harness-engineering.md`](../../../../harness-engineering/foundations/01-what-is-harness-engineering.md)。
 
 费曼输出：
 
@@ -298,7 +298,7 @@ coding agent 可以是 tutor，也可以变成代工。区别在工作流。
 第 6 天：理解学习债和 AI review 边界
 
 - 读 [`learning-first-vibe-coding.md`](learning-first-vibe-coding.md)。
-- 读 [`../../research/workflows/04-vibe-coding-review-and-learning-debt.md`](../../research/workflows/04-vibe-coding-review-and-learning-debt.md)。
+- 读 [`../../../research/workflows/04-vibe-coding-review-and-learning-debt.md`](../../../research/workflows/04-vibe-coding-review-and-learning-debt.md)。
 
 费曼输出：
 

@@ -4,18 +4,19 @@
 
 这个目录下的文档按用途分成三类：
 
-## Playbooks：写代码时直接用
+## Agent Assets：写代码时直接用
 
-这些文档更像操作手册和速查卡，适合开新项目、写功能、修 bug、review diff 时直接复制提示词或流程。
+这些文档更像可复制到项目里的 agent 协作资产，适合开新项目、写功能、修 bug、review diff 时直接复制提示词、流程或项目级工具配置。
 
-正式工作流入口统一放在 [`playbooks/workflows/`](playbooks/workflows/README.md)。旧的根级 playbook 文件不再作为入口；当前目录中也不恢复 `playbooks/01-agent-tdd-project-bootstrap-playbook.md` 和 `playbooks/02-coding-agent-cheatsheet.md`。
+正式入口统一放在 [`agent/`](agent/README.md)。其中 `playbooks/` 定义工作流和规则，`skills/` 预留可执行能力模板，`mcp/` 预留工具连接配置示例。旧的根级 playbook 文件不再作为入口；当前目录中也不恢复历史上的 `playbooks/01-agent-tdd-project-bootstrap-playbook.md` 和 `playbooks/02-coding-agent-cheatsheet.md`。
 
-1. [`playbooks/README.md`](playbooks/README.md)：可复制到新项目里的 Coding Agent Playbook Toolbox 总入口。
-2. [`playbooks/workflows/new-project-bootstrap.md`](playbooks/workflows/new-project-bootstrap.md)：个人 Agent + TDD 新项目 bootstrap 流程。
-3. [`playbooks/workflows/existing-project-onboarding.md`](playbooks/workflows/existing-project-onboarding.md)：既有项目接入 agent harness 和 TDD 工作流的渐进式改造流程。
-4. [`playbooks/workflows/everyday-development.md`](playbooks/workflows/everyday-development.md)：日常开发、功能、bugfix、review 和上下文恢复入口。
-5. [`playbooks/workflows/learning-first-vibe-coding.md`](playbooks/workflows/learning-first-vibe-coding.md)：陌生技术栈下控制 diff、边做边学、独立 review 和避免学习债的工作流。
-6. [`playbooks/workflows/feynman-learning-for-programming.md`](playbooks/workflows/feynman-learning-for-programming.md)：用费曼学习法学习编程概念、coding agent 工作流和本仓库资料。
+1. [`agent/README.md`](agent/README.md)：可复制到新项目里的 agent 协作资产总入口。
+2. [`agent/playbooks/README.md`](agent/playbooks/README.md)：Coding Agent Playbook Toolbox 总入口。
+3. [`agent/playbooks/workflows/new-project-bootstrap.md`](agent/playbooks/workflows/new-project-bootstrap.md)：个人 Agent + TDD 新项目 bootstrap 流程。
+4. [`agent/playbooks/workflows/existing-project-onboarding.md`](agent/playbooks/workflows/existing-project-onboarding.md)：既有项目接入 agent harness 和 TDD 工作流的渐进式改造流程。
+5. [`agent/playbooks/workflows/everyday-development.md`](agent/playbooks/workflows/everyday-development.md)：日常开发、功能、bugfix、review 和上下文恢复入口。
+6. [`agent/playbooks/workflows/learning-first-vibe-coding.md`](agent/playbooks/workflows/learning-first-vibe-coding.md)：陌生技术栈下控制 diff、边做边学、独立 review 和避免学习债的工作流。
+7. [`agent/playbooks/workflows/feynman-learning-for-programming.md`](agent/playbooks/workflows/feynman-learning-for-programming.md)：用费曼学习法学习编程概念、coding agent 工作流和本仓库资料。
 
 ## Research：跨工具调研、方法论和设计分析
 
@@ -38,9 +39,9 @@
 
 建议阅读路径：
 
-1. 想开新项目：先读 [`playbooks/workflows/new-project-bootstrap.md`](playbooks/workflows/new-project-bootstrap.md)。
-2. 想接入既有项目：读 [`playbooks/workflows/existing-project-onboarding.md`](playbooks/workflows/existing-project-onboarding.md)。
-3. 日常写代码：打开 [`playbooks/workflows/everyday-development.md`](playbooks/workflows/everyday-development.md) 按场景复制提示词。
+1. 想开新项目：先读 [`agent/playbooks/workflows/new-project-bootstrap.md`](agent/playbooks/workflows/new-project-bootstrap.md)。
+2. 想接入既有项目：读 [`agent/playbooks/workflows/existing-project-onboarding.md`](agent/playbooks/workflows/existing-project-onboarding.md)。
+3. 日常写代码：打开 [`agent/playbooks/workflows/everyday-development.md`](agent/playbooks/workflows/everyday-development.md) 按场景复制提示词。
 4. 想理解高手经验：读 [`research/workflows/01-expert-coding-agent-workflows.md`](research/workflows/01-expert-coding-agent-workflows.md)。
 5. 想理解 subagent 使用边界：读 [`research/orchestration/01-when-to-use-subagents.md`](research/orchestration/01-when-to-use-subagents.md)。
 6. 想让 AI 生成代码更容易可靠 review：读 [`research/workflows/02-ai-assisted-code-review.md`](research/workflows/02-ai-assisted-code-review.md)。
@@ -50,8 +51,8 @@
 10. 想理解 Agent Skills 如何沉淀重复工作流、组织知识和验证纪律：读 [`research/runtime/04-agent-skills.md`](research/runtime/04-agent-skills.md)。
 11. 想系统研究 Multi-Agent：读 [`research/orchestration/02-multi-agent-research.md`](research/orchestration/02-multi-agent-research.md)。
 12. 想理解 Vibe Coding 为什么会带来 review 困境和学习债：读 [`research/workflows/04-vibe-coding-review-and-learning-debt.md`](research/workflows/04-vibe-coding-review-and-learning-debt.md)。
-13. 想把 Vibe Coding 的判断落实成可复制 prompt：读 [`playbooks/workflows/learning-first-vibe-coding.md`](playbooks/workflows/learning-first-vibe-coding.md)。
-14. 想用费曼学习法学习编程和本仓库资料：读 [`playbooks/workflows/feynman-learning-for-programming.md`](playbooks/workflows/feynman-learning-for-programming.md)。
+13. 想把 Vibe Coding 的判断落实成可复制 prompt：读 [`agent/playbooks/workflows/learning-first-vibe-coding.md`](agent/playbooks/workflows/learning-first-vibe-coding.md)。
+14. 想用费曼学习法学习编程和本仓库资料：读 [`agent/playbooks/workflows/feynman-learning-for-programming.md`](agent/playbooks/workflows/feynman-learning-for-programming.md)。
 15. 想理解 Codex 机制：从 [`codex/context/01-codex-context-compaction-principles.md`](codex/context/01-codex-context-compaction-principles.md) 开始。
 16. 想研究 Codex 实验 Memories 功能：读 [`codex/memory/01-codex-cli-experimental-memories.md`](codex/memory/01-codex-cli-experimental-memories.md)。
 

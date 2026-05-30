@@ -4,6 +4,8 @@
 - [ ] 技术栈已确定；如未确定，先使用 [`../prompts/tech-stack-selection.md`](../prompts/tech-stack-selection.md)。
 - [ ] 当前目录已初始化 Git，或明确记录不能初始化的原因。
 - [ ] `.gitignore` 覆盖 OS/editor、secret、日志、缓存、覆盖率、构建产物和技术栈产物。
+- [ ] `.gitignore` 默认忽略 `docs/agent/playbooks/`，并忽略 `docs/agent/skills/`、`docs/agent/mcp/` 中除 README.md 之外的本地资产、真实配置和凭据，除非用户明确希望 vendoring。
+- [ ] `AGENTS.md`、`README.md`、`docs/project-status.md`、`docs/development.md`、`docs/testing.md`、`docs/agent/README.md`、`docs/agent/skills/README.md`、`docs/agent/mcp/README.md` 等项目专属 harness 文档没有被忽略。
 - [ ] 创建 `AGENTS.md`。
 - [ ] 创建 `README.md`。
 - [ ] 创建 `docs/README.md`。
@@ -17,6 +19,11 @@
 - [ ] 创建 `docs/specs/README.md`。
 - [ ] 创建 `docs/plans/README.md`。
 - [ ] 创建 `docs/troubleshooting.md`。
+- [ ] 创建 `docs/agent/README.md`。
+- [ ] 创建或保留 `docs/agent/playbooks/`；如果已存在，保留现有内容不覆盖；如果不存在且能访问源目录，复制完整工具箱；不能访问时创建占位 README 并记录待补。
+- [ ] 创建或保留 `docs/agent/skills/README.md`，说明 skills 的可选启用和安全边界。
+- [ ] 创建或保留 `docs/agent/mcp/README.md`，说明 MCP 的可选启用、示例配置和凭据边界。
+- [ ] `AGENTS.md`、`docs/README.md` 和 `docs/agent/README.md` 已写入 `docs/agent/playbooks/`、`docs/agent/skills/`、`docs/agent/mcp/` 的使用入口。
 - [ ] 创建 `scripts/bootstrap`、`scripts/dev`、`scripts/test`、`scripts/check`。
 - [ ] 脚本接到真实命令；如果还不能接，文档里标明待补。
 - [ ] 运行一次当前可用的最小验证命令。

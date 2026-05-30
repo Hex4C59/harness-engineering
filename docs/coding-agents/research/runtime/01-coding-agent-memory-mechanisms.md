@@ -739,8 +739,8 @@ docs/architecture.md
 docs/project-status.md
 
 日常速查
-docs/coding-agents/playbooks/workflows/everyday-development.md
-docs/coding-agents/playbooks/prompts/
+docs/coding-agents/agent/playbooks/workflows/everyday-development.md
+docs/coding-agents/agent/playbooks/prompts/
 
 自动 memory
 ~/.codex/memories/

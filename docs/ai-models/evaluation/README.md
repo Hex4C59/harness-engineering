@@ -4,8 +4,8 @@
 
 文档：
 
-1. [`02-understanding-frontier-model-benchmarks.md`](02-understanding-frontier-model-benchmarks.md)：如何读懂 Claude、GPT、Gemini 发布时的 benchmark。
-2. [`03-claude-opus-4-8-report-analysis.md`](03-claude-opus-4-8-report-analysis.md)：Claude Opus 4.8 官方报告解读。
+1. [`01-understanding-frontier-model-benchmarks.md`](01-understanding-frontier-model-benchmarks.md)：如何读懂 Claude、GPT、Gemini 发布时的 benchmark。
+2. [`02-claude-opus-4-8-report-analysis.md`](02-claude-opus-4-8-report-analysis.md)：Claude Opus 4.8 官方报告解读。
 
 相关目录：
 

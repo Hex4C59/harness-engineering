@@ -4,11 +4,11 @@
 
 建议按以下顺序阅读：
 
-1. [`06-prompt-engineering-research.md`](06-prompt-engineering-research.md)：Prompt Engineering 横向调研。
-2. [`07-tool-use-research.md`](07-tool-use-research.md)：Tool Use 调研：从函数调用到 agent action layer。
-3. [`08-agent-loop-research.md`](08-agent-loop-research.md)：Agent Loop 调研：从 ReAct 循环到生产级 agent runtime。
-4. [`09-context-engineering-research.md`](09-context-engineering-research.md)：Context Engineering 调研：agent 系统里的上下文治理工程。
-5. [`10-planning-research.md`](10-planning-research.md)：Agent Planning 调研：从模型推理能力到可审计执行控制面。
+1. [`01-prompt-engineering-research.md`](01-prompt-engineering-research.md)：Prompt Engineering 横向调研。
+2. [`02-tool-use-research.md`](02-tool-use-research.md)：Tool Use 调研：从函数调用到 agent action layer。
+3. [`03-agent-loop-research.md`](03-agent-loop-research.md)：Agent Loop 调研：从 ReAct 循环到生产级 agent runtime。
+4. [`04-context-engineering-research.md`](04-context-engineering-research.md)：Context Engineering 调研：agent 系统里的上下文治理工程。
+5. [`05-planning-research.md`](05-planning-research.md)：Agent Planning 调研：从模型推理能力到可审计执行控制面。
 
 相关目录：
 

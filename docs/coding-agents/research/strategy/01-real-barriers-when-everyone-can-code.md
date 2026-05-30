@@ -561,7 +561,7 @@ AI 会让 MVP 变便宜，也会让同质化更严重。分发、信任和领域
 对当前文档体系，可以继续沉淀这些方向：
 
 - `AGENTS.md`：保持入口地图，不写成百科全书。
-- `docs/coding-agents/playbooks/`：继续沉淀可复制工作流。
+- `docs/coding-agents/agent/playbooks/`：继续沉淀可复制工作流。
 - `docs/coding-agents/research/`：继续研究 agent hooks、skills、subagents、review、plan docs。
 - `docs/ai-models/`：不要只追模型排名，要解释 benchmark 测什么。
 - `docs/harness-engineering/`：把上下文、工具、权限、验证、状态、反馈闭环系统化。

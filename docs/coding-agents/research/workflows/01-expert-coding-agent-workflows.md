@@ -490,7 +490,7 @@ research-options：不改代码，只调研 2-3 个方案
 等我确认计划后，再按 Red-Green-Refactor 执行。
 ```
 
-这个就是你 [`../../playbooks/workflows/new-project-bootstrap.md`](../../playbooks/workflows/new-project-bootstrap.md) 的核心实战入口。
+这个就是你 [`../../agent/playbooks/workflows/new-project-bootstrap.md`](../../agent/playbooks/workflows/new-project-bootstrap.md) 的核心实战入口。
 
 ### 模板四：Bug 修复
 
