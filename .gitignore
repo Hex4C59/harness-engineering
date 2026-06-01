@@ -30,6 +30,23 @@ coverage/
 .pytest_cache/
 node_modules/
 
+# Python local environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local experiment outputs
+outputs/
+artifacts/
+run-output/
+
 # Local research scratch space
 drafts/.local/
 materials/.local/

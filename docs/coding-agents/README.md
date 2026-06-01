@@ -49,13 +49,14 @@
 8. 想把项目规则、验证、通知和审计沉淀进 agent runtime：读 [`research/runtime/03-coding-agent-hooks.md`](research/runtime/03-coding-agent-hooks.md)。
 9. 想理解人人皆可 coding 后真正壁垒在哪里：读 [`research/strategy/01-real-barriers-when-everyone-can-code.md`](research/strategy/01-real-barriers-when-everyone-can-code.md)。
 10. 想理解 Agent Skills 如何沉淀重复工作流、组织知识和验证纪律：读 [`research/runtime/04-agent-skills.md`](research/runtime/04-agent-skills.md)。
-11. 想系统研究 Multi-Agent：读 [`research/orchestration/02-multi-agent-research.md`](research/orchestration/02-multi-agent-research.md)。
-12. 想理解 Vibe Coding 为什么会带来 review 困境和学习债：读 [`research/workflows/04-vibe-coding-review-and-learning-debt.md`](research/workflows/04-vibe-coding-review-and-learning-debt.md)。
-13. 想理解 Anthropic / Claude Code Dynamic workflows 如何把大量 subagents 编排成可运行脚本：读 [`research/workflows/06-anthropic-dynamic-workflows.md`](research/workflows/06-anthropic-dynamic-workflows.md)。
-14. 想把 Vibe Coding 的判断落实成可复制 prompt：读 [`agent/playbooks/workflows/learning-first-vibe-coding.md`](agent/playbooks/workflows/learning-first-vibe-coding.md)。
-15. 想用费曼学习法学习编程和本仓库资料：读 [`agent/playbooks/workflows/feynman-learning-for-programming.md`](agent/playbooks/workflows/feynman-learning-for-programming.md)。
-16. 想理解 Codex 机制：从 [`codex/context/01-codex-context-compaction-principles.md`](codex/context/01-codex-context-compaction-principles.md) 开始。
-17. 想研究 Codex 实验 Memories 功能：读 [`codex/memory/01-codex-cli-experimental-memories.md`](codex/memory/01-codex-cli-experimental-memories.md)。
+11. 想系统理解 MCP 如何把 agent 连接到工具、资源和外部服务：读 [`research/runtime/05-model-context-protocol.md`](research/runtime/05-model-context-protocol.md)。
+12. 想系统研究 Multi-Agent：读 [`research/orchestration/02-multi-agent-research.md`](research/orchestration/02-multi-agent-research.md)。
+13. 想理解 Vibe Coding 为什么会带来 review 困境和学习债：读 [`research/workflows/04-vibe-coding-review-and-learning-debt.md`](research/workflows/04-vibe-coding-review-and-learning-debt.md)。
+14. 想理解 Anthropic / Claude Code Dynamic workflows 如何把大量 subagents 编排成可运行脚本：读 [`research/workflows/06-anthropic-dynamic-workflows.md`](research/workflows/06-anthropic-dynamic-workflows.md)。
+15. 想把 Vibe Coding 的判断落实成可复制 prompt：读 [`agent/playbooks/workflows/learning-first-vibe-coding.md`](agent/playbooks/workflows/learning-first-vibe-coding.md)。
+16. 想用费曼学习法学习编程和本仓库资料：读 [`agent/playbooks/workflows/feynman-learning-for-programming.md`](agent/playbooks/workflows/feynman-learning-for-programming.md)。
+17. 想理解 Codex 机制：从 [`codex/context/01-codex-context-compaction-principles.md`](codex/context/01-codex-context-compaction-principles.md) 开始。
+18. 想研究 Codex 实验 Memories 功能：读 [`codex/memory/01-codex-cli-experimental-memories.md`](codex/memory/01-codex-cli-experimental-memories.md)。
 
 相关主题：
 

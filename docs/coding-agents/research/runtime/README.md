@@ -8,3 +8,4 @@
 2. [`02-coding-agent-sandbox-mechanisms.md`](02-coding-agent-sandbox-mechanisms.md)：Coding Agent 沙箱机制综述。
 3. [`03-coding-agent-hooks.md`](03-coding-agent-hooks.md)：Coding Agent Hooks：Claude Code 与 Codex CLI 的生命周期扩展点。
 4. [`04-agent-skills.md`](04-agent-skills.md)：Agent Skills 调研：从 Prompt 片段到可复用能力包。
+5. [`05-model-context-protocol.md`](05-model-context-protocol.md)：Model Context Protocol 系统调研：从工具连接协议到 Agent Runtime 边界。
